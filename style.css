@@ -1,0 +1,657 @@
+/* ==========================================================================
+   1. RESET, DESIGN TOKENS & AJUSTE DE CONTRASTE (Visual Tech Premium Claro)
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Clareamento de Identidade Visual - Foco em Leitura Confortável */
+    --bg-dark: #f1f5f9;                 /* Cinza Sutil e Tecnológico */
+    --bg-section-white: #ffffff;         /* Blocos Principais Totalmente Claros */
+    --bg-card: rgba(255, 255, 255, 0.9);/* Efeito Vidro Claro */
+    --border-glass: rgba(15, 23, 42, 0.08);
+    
+    /* Degradês Modernos inspirados na Estética Apple / Startups */
+    --primary-grad: linear-gradient(135deg, #0052d4 0%, #2b6cb0 50%, #4299e1 100%);
+    --accent-glow: radial-gradient(circle, rgba(66, 153, 225, 0.12) 0%, rgba(255,255,255,0) 70%);
+    
+    /* Tipografia com Contraste Acentuado (Excelente para Mobile ao Sol) */
+    --text-main: #0f172a;               /* Slate Escuro Forte */
+    --text-muted: #475569;              /* Cinza de Leitura Limpa */
+    --whatsapp: #22c55e;                /* Verde Oficial Ativo */
+    --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.glow-bg {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: var(--accent-glow);
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 50%;
+    top: -10%;
+    right: -5%;
+}
+
+/* ==========================================================================
+   2. NAVBAR & ADAPTAÇÃO RESPONSIVA DO TOPO
+   ========================================================================== */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1002;
+}
+
+.logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-fallback-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0052d4;
+    letter-spacing: -0.5px;
+}
+
+.logo-text-mobile {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+nav a:hover, nav ul li.active a {
+    color: #0052d4;
+}
+
+.btn-nav {
+    background: var(--primary-grad);
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0, 82, 212, 0.2);
+}
+
+.btn-nav:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 82, 212, 0.35);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--text-main);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ==========================================================================
+   3. HERO SECTION & CONFIGURAÇÕES DA FOTO DA LOJA FÍSICA
+   ========================================================================== */
+.hero {
+    padding: 80px 0 100px 0;
+    background-color: var(--bg-section-white);
+    position: relative;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-badge {
+    background: rgba(0, 82, 212, 0.06);
+    border: 1px solid rgba(0, 82, 212, 0.15);
+    color: #0052d4;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--whatsapp);
+    border-radius: 50%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 540px;
+}
+
+.cta-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary-grad);
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 82, 212, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 82, 212, 0.4);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background: #cbd5e1;
+}
+
+/* Moldura Arquitetônica para a Foto da Loja */
+.hero-image-wrapper {
+    width: 100%;
+    height: 440px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+    border: 1px solid var(--border-glass);
+    background-color: #ffffff;
+}
+
+/* Otimização da Foto Lateral da Loja (Tratamento de Recorte Profissional) */
+.hero-img-loja {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;               /* Ajusta sem distorcer as proporções */
+    object-position: center 30%;     /* Foca na logo interna da Clima Split e prateleiras */
+    filter: brightness(1.03) contrast(1.02); /* Suave correção de iluminação */
+    transition: transform 0.5s ease;
+}
+
+.hero-image-wrapper:hover .hero-img-loja {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   4. ELEMENTOS E SEÇÕES SECUNDÁRIAS (Serviços e Sobre)
+   ========================================================================== */
+.trust-bar {
+    background: #ffffff;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 30px 0;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.trust-item h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0052d4;
+}
+
+.trust-item p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header span {
+    color: #0052d4;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+/* Cards de Serviços */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card-premium {
+    background: var(--bg-section-white);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);
+}
+
+.service-card-premium:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 82, 212, 0.2);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+}
+
+.service-icon-svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 20px;
+    color: #0052d4;
+}
+
+.service-card-premium h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-card-premium p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+}
+
+.service-action-link {
+    color: #0052d4;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.service-action-link:hover { gap: 5px; }
+
+/* Sobre */
+.about-section { background-color: var(--bg-section-white); }
+.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.badge-section { color: #0052d4; font-weight: 700; font-size: 0.85rem; margin-bottom: 10px; }
+.about-text h3 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+.about-text p { color: var(--text-muted); margin-bottom: 24px; }
+
+.mvv-clean-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.mvv-card-premium { background: var(--bg-dark); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px; }
+.mvv-card-premium h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+.mvv-card-premium p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+
+.about-badge-visual {
+    background: var(--primary-grad);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 82, 212, 0.15);
+}
+
+.icon-large { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+
+.mid-cta {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(66, 153, 225, 0.08) 100%);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.mid-cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+.mid-cta p { color: var(--text-muted); margin-bottom: 24px; }
+
+/* ==========================================================================
+   5. GALERIA PROFISSIONAL (Cards Realistas com Hover Ativo)
+   ========================================================================== */
+.gallery-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-card-premium {
+    background: var(--bg-section-white);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.02);
+}
+
+.gallery-card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+.gallery-image-container {
+    height: 220px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-img-real {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-card-premium:hover .gallery-img-real {
+    transform: scale(1.03);
+}
+
+.gallery-meta-box { padding: 20px; }
+.gallery-meta-box span { color: #0052d4; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.gallery-meta-box h4 { font-size: 1.05rem; font-weight: 700; margin-top: 4px; }
+
+/* ==========================================================================
+   6. CONTATO, FORMULÁRIO DE CAPTAÇÃO & RODAPÉ
+   ========================================================================== */
+.contact-section { background-color: var(--bg-section-white); }
+.contact-section-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+
+.form-card-premium {
+    background: #ffffff;
+    border: 1px solid var(--border-glass);
+    padding: 36px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+}
+
+.form-header { margin-bottom: 24px; }
+.form-header h3 { font-size: 1.4rem; font-weight: 800; }
+.form-header p { font-size: 0.88rem; color: var(--text-muted); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group-premium { margin-bottom: 16px; }
+
+.form-group-premium label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.input-premium {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: var(--transition);
+}
+
+.input-premium:focus {
+    outline: none;
+    border-color: #0052d4;
+    background: #ffffff;
+}
+
+.btn-submit-premium {
+    background: var(--primary-grad);
+    color: #ffffff;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 82, 212, 0.15);
+    transition: var(--transition);
+}
+
+.btn-submit-premium:hover { box-shadow: 0 6px 18px rgba(0, 82, 212, 0.3); }
+
+.info-panel-premium { display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+.contact-info-block h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #0052d4; margin-bottom: 4px; }
+.contact-info-block p, .contact-info-block a { font-size: 1.3rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+.contact-info-block a:hover { color: #0052d4; }
+.text-small { font-size: 0.9rem !important; font-weight: 500 !important; color: var(--text-muted) !important; }
+
+/* Botões Sociais Exclusivos UX */
+.social-icons-only { display: flex; gap: 12px; margin-top: 10px; }
+.social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    color: var(--text-main);
+    border: 1px solid var(--border-glass);
+    transition: var(--transition);
+}
+
+.social-icon-btn:hover {
+    background: #0052d4;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.social-svg { width: 18px; height: 18px; }
+
+/* Rodapé */
+footer { background-color: #0f172a; color: #94a3b8; padding: 60px 0 30px 0; }
+.footer-grid-premium { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr; gap: 40px; margin-bottom: 40px; }
+.footer-col h4 { color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+.footer-col ul a:hover { color: #ffffff; }
+.footer-bottom-premium { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.8rem; }
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float-premium {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: var(--whatsapp);
+    color: #ffffff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3);
+    z-index: 999;
+    transition: var(--transition);
+}
+
+.whatsapp-float-premium:hover { transform: scale(1.06) translateY(-2px); }
+
+/* ==========================================================================
+   7. TRATAMENTO RESPONSIVO COMPLETO (Mobile First Overrides)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-grid, .about-layout, .gallery-grid-premium, .contact-section-layout { grid-template-columns: 1fr; }
+    .footer-grid-premium { grid-template-columns: 1fr; gap: 30px; }
+    .hero { padding: 40px 0 60px 0; }
+    .hero h1 { font-size: 2.3rem; }
+    .hero-image-wrapper { height: 320px; }
+}
+
+@media (max-width: 768px) {
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    
+    .menu-toggle { display: flex; order: 3; }
+    .logo-link { order: 1; }
+    .logo-fallback-text { font-size: 1.1rem; }
+    
+    /* Título Centralizado Fluido Mobile */
+    .logo-text-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: var(--text-main);
+        letter-spacing: 0.3px;
+        line-height: 1.1;
+        text-align: center;
+        z-index: 1001;
+    }
+    .logo-text-mobile span {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: #0052d4;
+    }
+    
+    /* Menu Gaveta Responsivo Mobile */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 270px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: -6px 0 24px rgba(15, 23, 42, 0.05);
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 90px 24px 30px 24px;
+        z-index: 1000;
+    }
+    
+    nav.active { right: 0; }
+    nav ul { flex-direction: column; align-items: flex-start; gap: 20px; }
+    nav a { font-size: 1.05rem; display: block; width: 100%; padding-bottom: 6px; border-bottom: 1px solid var(--border-glass); }
+    .btn-nav { text-align: center; border-bottom: none; width: 100%; }
+    
+    section { padding: 50px 0; }
+    .section-header h2 { font-size: 1.8rem; }
+    .mvv-clean-grid { grid-template-columns: 1fr; }
+}
