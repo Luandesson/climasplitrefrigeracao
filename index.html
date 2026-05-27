@@ -429,152 +429,192 @@
             letter-spacing: -0.5px;
         }
 
-        /* Quem Somos Minimalista */
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
+        /* ==========================================================================
+   SEÇÃO: QUEM SOMOS (Ajustada e Sem Duplicações)
+   ========================================================================== */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
+.about-text h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 
-        .about-text p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 32px;
-        }
+.about-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+}
 
-        .mvv-clean-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
+.mvv-clean-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
 
-        .mvv-card-premium {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            padding: 24px;
-            border-radius: 16px;
-            transition: var(--transition);
-        }
+.mvv-card-premium {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    padding: 24px;
+    border-radius: 16px;
+    transition: var(--transition);
+}
 
-        .mvv-card-premium:hover {
-            border-color: rgba(67, 100, 247, 0.4);
-            background: rgba(67, 100, 247, 0.02);
-        }
+.mvv-card-premium:hover {
+    border-color: rgba(67, 100, 247, 0.4);
+    background: rgba(67, 100, 247, 0.02);
+}
 
-        .mvv-card-premium h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-main);
-        }
+.mvv-card-premium h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
 
-        .mvv-card-premium p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
+.mvv-card-premium p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.4;
+}
 
-        .about-badge-visual {
-            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 100%);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 60px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
+/* Card de Destaque com Imagem de Fundo (Estrutura Nova e Única) */
+.about-badge-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1220;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
 
-        .icon-large {
-            font-size: 3.5rem;
-            margin-bottom: 24px;
-            display: block;
-        }
+.about-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    transform: scale(1.03);
+    transition: var(--transition);
+}
 
-        /* Serviços (Cards Premium Grid) */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
+.about-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(7,11,25,0.95),
+        rgba(7,11,25,0.55)
+    );
+    z-index: 2;
+}
 
-        .service-card-premium {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 32px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
+.about-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 40px;
+}
 
-        .service-card-premium::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(67, 100, 247, 0.1), transparent 60%);
-            opacity: 0;
-            transition: var(--transition);
-        }
+.icon-large {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 18px rgba(111,177,252,0.45));
+}
 
-        .service-card-premium:hover {
-            transform: translateY(-6px);
-            border-color: rgba(111, 177, 252, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
+/* ==========================================================================
+   SEÇÃO: SERVIÇOS 
+   ========================================================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
 
-        .service-card-premium:hover::before {
-            opacity: 1;
-        }
+.service-card-premium {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 32px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
 
-        .service-icon-svg {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 28px;
-            color: #6fb1fc;
-        }
+.service-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(67, 100, 247, 0.1), transparent 60%);
+    opacity: 0;
+    transition: var(--transition);
+}
 
-        .service-card-premium h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
+.service-card-premium:hover {
+    transform: translateY(-6px);
+    border-color: rgba(111, 177, 252, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
 
-        .service-card-premium p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-            line-height: 1.4;
-        }
+.service-card-premium:hover::before {
+    opacity: 1;
+}
 
-        .service-action-link {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: var(--transition);
-        }
+.service-icon-svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 28px;
+    color: #6fb1fc;
+}
 
-        .service-card-premium:hover .service-action-link {
-            color: #6fb1fc;
-            gap: 10px;
-        }
+.service-card-premium h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.service-card-premium p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.service-action-link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.service-card-premium:hover .service-action-link {
+    color: #6fb1fc;
+    gap: 10px;
+}
 
         /* Seção de Conversão / CTA no Meio do Site */
         .mid-cta {
@@ -1130,12 +1170,13 @@
                 margin-top: 16px;
                 border-bottom: none;
             }
+           
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/5500000000000?text=Olá!+Gostaria+de+solicitar+um+orçamento+para+ar-condicionado." class="whatsapp-float-premium" target="_blank" rel="noopener noreferrer" title="Fale pelo WhatsApp">
+    <a href="https://wa.me/5521990140784?text=Olá!+Gostaria+de+solicitar+um+orçamento+para+ar-condicionado." class="whatsapp-float-premium" target="_blank" rel="noopener noreferrer" title="Fale pelo WhatsApp">
         <svg class="whatsapp-icon-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.498 1.451 5.438 1.453 5.494 0 9.961-4.47 9.964-9.97.002-2.666-1.033-5.174-2.914-7.057C17.25 1.708 14.74 .672 12.01.67c-5.497 0-9.966 4.47-9.969 9.97-.001 1.993.513 3.943 1.49 5.66l-.994 3.634 3.71-.973zm11.534-6.906c-.307-.154-1.813-.895-2.094-.997-.281-.102-.485-.154-.688.154-.203.308-.787.997-.965 1.203-.177.206-.355.23-.662.077-1.119-.56-1.954-.959-2.715-2.261-.201-.343.201-.318.574-1.062.063-.127.032-.239-.016-.341-.048-.102-.485-1.169-.664-1.601-.174-.419-.347-.362-.486-.369-.127-.006-.272-.007-.418-.007-.146 0-.384.054-.585.272-.2.218-.765.748-.765 1.822 0 1.074.78 2.113.89 2.262.11.149 1.534 2.342 3.716 3.281.519.224.924.358 1.24.46.52.165.994.142 1.368.086.417-.063 1.813-.742 2.066-1.46.254-.717.254-1.332.178-1.46-.076-.127-.272-.206-.58-.359z"/></svg>
     </a>
 
@@ -1163,7 +1204,7 @@
                     <li><a href="#servicos" class="nav-link">Serviços</a></li>
                     <li><a href="#galeria" class="nav-link">Projetos</a></li>
                     <li><a href="#contato" class="nav-link">Contato</a></li>
-                    <li><a href="https://wa.me/5500000000000" class="btn-nav" target="_blank">Atendimento Já</a></li>
+                    <li><a href="https://wa.me/5521990140784" class="btn-nav" target="_blank">Atendimento Já</a></li>
                 </ul>
             </nav>
         </div>
@@ -1191,7 +1232,7 @@
 
                 <div class="cta-group">
 
-                    <a href="https://wa.me/5500000000000?text=Olá!+Gostaria+de+um+orçamento+rápido."
+                    <a href="https://wa.me/5521990140784?text=Olá!+Gostaria+de+um+orçamento+rápido."
                        class="btn btn-primary"
                        target="_blank"
                        rel="noopener noreferrer">
@@ -1278,10 +1319,28 @@
                     </div>
                 </div>
                 <div class="about-badge-visual">
-                    <span class="icon-large">💎</span>
-                    <h3 style="margin-bottom: 8px;">Consolidação e Confiança</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Profissionais uniformizados equipados com maquinário especializado de última geração.</p>
-                </div>
+
+    <img 
+        src="img/casal clima split.png" 
+        alt="Proprietários Clima Split Refrigeração"
+        class="about-bg-image"
+    >
+
+    <div class="about-overlay"></div>
+
+    <div class="about-content">
+        <span class="icon-large">💎</span>
+
+        <h3 style="margin-bottom: 8px;">
+            Consolidação e Confiança
+        </h3>
+
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Profissionais uniformizados equipados com maquinário especializado de última geração.
+        </p>
+    </div>
+
+</div>
             </div>
         </div>
     </section>
@@ -1301,7 +1360,7 @@
                         <h3>Instalação Conectada</h3>
                         <p>Infraestrutura e fixação dentro das estritas especificações técnicas das fabricantes, preservando sua garantia original.</p>
                     </div>
-                    <a href="https://wa.me/5500000000000?text=Quero+instalação" class="service-action-link" target="_blank">Solicitar Solução →</a>
+                    <a href="https://wa.me/5521990140784?text=Quero+instalação" class="service-action-link" target="_blank">Solicitar Solução →</a>
                 </div>
 
                 <div class="service-card-premium">
@@ -1310,7 +1369,7 @@
                         <h3>Manutenção Preventiva</h3>
                         <p>Ajustes finos periódicos e calibração de fluidos para blindar o sistema contra pane geral inesperada e vazamentos.</p>
                     </div>
-                    <a href="https://wa.me/5500000000000?text=Quero+manutenção" class="service-action-link" target="_blank">Solicitar Solução →</a>
+                    <a href="https://wa.me/5521990140784?text=Quero+manutenção" class="service-action-link" target="_blank">Solicitar Solução →</a>
                 </div>
 
                 <div class="service-card-premium">
@@ -1319,7 +1378,7 @@
                         <h3>Higienização Química</h3>
                         <p>Desinfecção profunda de evaporadoras e turbinas, erradicando ácaros e alérgenos para entrega de um ar totalmente puro.</p>
                     </div>
-                    <a href="https://wa.me/5500000000000?text=Quero+higienização" class="service-action-link" target="_blank">Solicitar Solução →</a>
+                    <a href="https://wa.me/5521990140784?text=Quero+higienização" class="service-action-link" target="_blank">Solicitar Solução →</a>
                 </div>
 
                 <div class="service-card-premium">
@@ -1328,7 +1387,7 @@
                         <h3>Contratos Corporativos</h3>
                         <p>Adequação total ao PMOC exigido por normas sanitárias, assegurando a auditoria e saúde da sua operação comercial.</p>
                     </div>
-                    <a href="https://wa.me/5500000000000?text=Quero+contrato" class="service-action-link" target="_blank">Solicitar Solução →</a>
+                    <a href="https://wa.me/5521990140784?text=Quero+contrato" class="service-action-link" target="_blank">Solicitar Solução →</a>
                 </div>
             </div>
         </div>
@@ -1338,7 +1397,7 @@
         <div class="container">
             <h2>Pronto para restabelecer o conforto térmico perfeito?</h2>
             <p>Atendimento emergencial corporativo e residencial com agendamento imediato.</p>
-            <a href="https://wa.me/5500000000000" class="btn btn-primary" target="_blank">Falar com Especialista de Plantão</a>
+            <a href="https://wa.me/5521990140784" class="btn btn-primary" target="_blank">Falar com Especialista de Plantão</a>
         </div>
     </div>
 
@@ -1597,7 +1656,7 @@
                 </div>
             </div>
             <div class="footer-bottom-premium">
-                <p>© 2026 Clima Split Refrigeração. Todos os direitos reservados. | Desenvolvido por <a href="https://www.linkedin.com/in/luandesson/" target="_blank" rel="noopener noreferrer">Web Designer Luandesson Alves</a> | Otimizado para conversões em Google Ads.</p>
+                <p>© 2026 Clima Split Refrigeração. Todos os direitos reservados. | Desenvolvido por <a href="https://www.linkedin.com/in/luandesson/" target="_blank" rel="noopener noreferrer">Web Designer Luandesson Alves</a>.</p>
             </div>
         </div>
     </footer>
