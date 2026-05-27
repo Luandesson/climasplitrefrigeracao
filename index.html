@@ -3,35 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima Split Refrigeração | Climatização de Alto Padrão</title>
+    <meta name="description" content="Clima Split - Loja de peças e ferramentas para técnicos e centro especializado em conserto, manutenção e instalação de ar-condicionado.">
+    <title>Clima Split | Loja de Peças & Especialização em Consertos</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SEO Local: Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HVACBusiness",
+      "name": "Clima Split Refrigeração",
+      "image": "https://exemplo.com/img/logo.webp", 
+      "description": "Loja de peças para técnicos e assistência técnica especializada em instalação e conserto de ar-condicionado.",
+      "telephone": "+5521991701876",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Estr. João Paulo, 1709 - Barros Filho",
+        "addressLocality": "Rio de Janeiro",
+        "addressRegion": "RJ",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+
     <style>
-        /* CSS Reset & Design Tokens */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        /* ==========================================================================
+           DESIGN TOKENS & CONFIGURAÇÕES GERAIS
+           ========================================================================== */
+        :root {
+            --primary: #00A3E0;       /* Azul - Tecnologia e Refrigeração */
+            --primary-dark: #0077A8;
+            --secondary: #FF9900;     /* Laranja - Destaque Comercial (CTA) */
+            --secondary-dark: #E08700;
+            --dark: #1E252B;          /* Grafite Escuro */
+            --light: #F4F7F9;         /* Fundo Claro */
+            --white: #FFFFFF;
+            --text: #4A5568;
+            --font-title: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        :root {
-            --bg-dark: #070b19;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --primary-grad: linear-gradient(135deg, #0052d4 0%, #4364f7 50%, #6fb1fc 100%);
-            --accent-glow: radial-gradient(circle, rgba(67, 100, 247, 0.15) 0%, rgba(0,0,0,0) 70%);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --whatsapp: #25d366;
-            --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: var(--font);
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.5;
+            font-family: var(--font-body);
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-title);
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
         }
 
         .container {
@@ -39,1650 +96,712 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-            position: relative;
         }
 
-        /* Efeito de Luz de Fundo (Glows Cores Frias) */
-        .glow-bg {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: var(--accent-glow);
-            pointer-events: none;
-            z-index: 0;
-            border-radius: 50%;
+        /* ==========================================================================
+           BOTÕES & BADGES (PADRÃO AGÊNCIA)
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
         }
 
-        /* Header / Navbar Glassmorphism */
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 4px 14px rgba(255, 153, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .section-badge {
+            display: inline-block;
+            background-color: rgba(0, 163, 224, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 60px auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           HEADER / NAV
+           ========================================================================== */
         header {
-            background: rgba(7, 11, 25, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glass);
-            position: sticky;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.02);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
+            height: 80px;
         }
 
-        .logo-link {
-            display: flex;
-            align-items: center;
-            z-index: 1002;
-        }
-
-        .logo-img {
-            height: 48px;
+        .logo img {
+            height: 80px; /* Ajuste conforme o tamanho da sua logo */
             width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 8px rgba(67, 100, 247, 0.3));
         }
 
-        .logo-text-mobile {
-            display: none;
-        }
-
-        nav ul {
+        .nav-menu {
             display: flex;
-            list-style: none;
             gap: 32px;
-            align-items: center;
+            list-style: none;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-muted);
+        .nav-link {
             font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            padding: 10px 20px;
             font-size: 0.9rem;
-            transition: var(--transition);
-            letter-spacing: 0.5px;
         }
 
-        nav a:hover, nav ul li.active a {
-            color: var(--text-main);
-            text-shadow: 0 0 10px rgba(111, 177, 252, 0.6);
-        }
-
-        .btn-nav {
-            background: var(--primary-grad);
-            color: var(--text-main) !important;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(67, 100, 247, 0.3);
-        }
-
-        .btn-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(67, 100, 247, 0.5);
-        }
-
-        /* Menu Hambúrguer Minimalista */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 16px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1002;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-main);
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* Hero Section Cinematográfica */
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
         .hero {
-            padding: 120px 0 140px 0;
+            padding: 180px 0 100px 0;
+            background: linear-gradient(135deg, #F4F7F9 0%, #E9EFF4 100%);
             position: relative;
-            display: flex;
-            align-items: center;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 48px;
             align-items: center;
         }
 
-        .hero-content {
-            z-index: 1;
-        }
-
-        .hero-badge {
-            background: rgba(67, 100, 247, 0.1);
-            border: 1px solid rgba(111, 177, 252, 0.3);
-            color: #6fb1fc;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
+        .hero-content h1 {
+            font-size: 3.2rem;
             line-height: 1.15;
             margin-bottom: 24px;
-            letter-spacing: -1px;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }
 
-        .hero p {
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
             font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 520px;
+            margin-bottom: 36px;
         }
 
-        .cta-group {
+        .hero-actions {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary-grad);
-            color: var(--text-main);
-            box-shadow: 0 4px 30px rgba(67, 100, 247, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 35px rgba(67, 100, 247, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-main);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Mockup Visual da Direita da Hero */
-        .hero-visual {
-            position: relative;
+        .hero-features {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-        }
-
-        /* Container que envolve a imagem */
-.hero-image-wrapper {
-    width: 100%;
-    height: 420px; /* Altura ideal balanceada para desktop e mobile */
-    border-radius: 24px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12); /* Sombra suave profissional */
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background-color: #ffffff;
-}
-
-/* Otimização e correção visual da Foto da Loja */
-.hero-img-loja {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recorta e preenche o espaço perfeitamente sem distorcer os produtos */
-    object-position: center 35%; /* Centraliza o foco na prateleira de produtos e logo da Clima Split */
-    filter: brightness(1.02) contrast(1.03); /* Melhora a iluminação interna do vidro da loja */
-    transition: transform 0.5s ease;
-}
-
-/* Efeito Hover interativo e sutil (UX Moderno) */
-.hero-image-wrapper:hover .hero-img-loja {
-    transform: scale(1.03); /* Leve aproximação elegante quando o usuário passa o mouse */
-}
-
-/* Ajuste específico para o Mobile First (Celulares) */
-@media (max-width: 768px) {
-
-    nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        max-width: 85%;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-
-        box-shadow: -10px 0 30px rgba(0,0,0,0.08);
-
-        transition: right 0.35s ease;
-
-        padding: 90px 24px 40px;
-        z-index: 9999;
-
-        overflow-y: auto;
-    }
-
-    nav.active {
-        right: 0;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-    }
-
-    nav ul li {
-        width: 100%;
-    }
-
-    nav a {
-        width: 100%;
-        display: block;
-        font-size: 1rem;
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba(15,23,42,0.08);
-    }
-
-    .btn-nav {
-        width: 100%;
-        text-align: center;
-        border-bottom: none;
-    }
-
-}
-
-        /* Fallback visual tecnológico sofisticado imitando ar condicionado */
-        .tech-art {
-            width: 80%;
-            height: 50%;
-            background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            position: relative;
-            box-shadow: inset 0 0 20px rgba(67, 100, 247, 0.2);
-        }
-
-        .tech-art::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: 10%;
-            width: 80%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #6fb1fc, transparent);
-            box-shadow: 0 0 20px #4364f7;
-            animation: pulse-glow 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        /* Faixa de Confiança Ultra Clean */
-        .trust-bar {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-left: none;
-            border-right: none;
-            padding: 40px 0;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
-            text-align: center;
+            margin-top: 48px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 24px;
         }
 
-        .trust-item h3 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: var(--primary-grad);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
+        .h-feat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--dark);
         }
 
-        .trust-item p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+        .h-feat-item i {
+            color: var(--primary);
         }
 
-        /* Seções Gerais */
-        section {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-header span {
-            color: #4364f7;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .section-header h2 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         /* ==========================================================================
-   SEÇÃO: QUEM SOMOS (Ajustada e Sem Duplicações)
-   ========================================================================== */
-.about-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-}
-
-.about-text h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    margin-bottom: 32px;
-}
-
-.mvv-clean-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-
-.mvv-card-premium {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    padding: 24px;
-    border-radius: 16px;
-    transition: var(--transition);
-}
-
-.mvv-card-premium:hover {
-    border-color: rgba(67, 100, 247, 0.4);
-    background: rgba(67, 100, 247, 0.02);
-}
-
-.mvv-card-premium h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-main);
-}
-
-.mvv-card-premium p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 0;
-    line-height: 1.4;
-}
-
-/* Card de Destaque com Imagem de Fundo (Estrutura Nova e Única) */
-.about-badge-visual {
-    position: relative;
-    overflow: hidden;
-    border-radius: 24px;
-    min-height: 420px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0b1220;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.about-bg-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 1;
-    transform: scale(1.03);
-    transition: var(--transition);
-}
-
-.about-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(7,11,25,0.95),
-        rgba(7,11,25,0.55)
-    );
-    z-index: 2;
-}
-
-.about-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    padding: 40px;
-}
-
-.icon-large {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 18px rgba(111,177,252,0.45));
-}
-
-/* ==========================================================================
-   SEÇÃO: SERVIÇOS 
-   ========================================================================== */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.service-card-premium {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: 20px;
-    padding: 32px;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card-premium::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(67, 100, 247, 0.1), transparent 60%);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.service-card-premium:hover {
-    transform: translateY(-6px);
-    border-color: rgba(111, 177, 252, 0.3);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.service-card-premium:hover::before {
-    opacity: 1;
-}
-
-.service-icon-svg {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 28px;
-    color: #6fb1fc;
-}
-
-.service-card-premium h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--text-main);
-}
-
-.service-card-premium p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 24px;
-    line-height: 1.4;
-}
-
-.service-action-link {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: var(--transition);
-}
-
-.service-card-premium:hover .service-action-link {
-    color: #6fb1fc;
-    gap: 10px;
-}
-
-        /* Seção de Conversão / CTA no Meio do Site */
-        .mid-cta {
-            background: linear-gradient(135deg, rgba(7, 11, 25, 0.9) 0%, rgba(67, 100, 247, 0.08) 100%);
-            border-top: 1px solid var(--border-glass);
-            border-bottom: 1px solid var(--border-glass);
-            padding: 80px 0;
-            text-align: center;
+           HUB DE NEGÓCIOS (LOJA VS ASSISTÊNCIA)
+           ========================================================================== */
+        .hub-section {
+            padding: 100px 0;
+            background-color: var(--white);
         }
 
-        .mid-cta h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
+        .hub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .hub-card {
+            padding: 50px 40px;
+            border-radius: 20px;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 380px;
+            transition: var(--transition);
+        }
+
+        .hub-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hub-loja {
+            background: linear-gradient(135deg, #1E252B 0%, #3A4651 100%);
+            box-shadow: 0 15px 35px rgba(30, 37, 43, 0.2);
+        }
+
+        .hub-conserto {
+            background: linear-gradient(135deg, #00A3E0 0%, #006699 100%);
+            box-shadow: 0 15px 35px rgba(0, 163, 224, 0.2);
+        }
+
+        .hub-card h2 {
+            color: var(--white);
+            font-size: 2rem;
             margin-bottom: 16px;
         }
 
-        .mid-cta p {
-            color: var(--text-muted);
+        .hub-card p {
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 32px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
-        /* Diferenciais de Autoridade */
-        .diff-grid {
+        .hub-card ul {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .hub-card ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hub-card ul li i {
+            color: var(--secondary);
+        }
+
+        /* ==========================================================================
+           SOBRE / EQUIPE / FACHADA
+           ========================================================================== */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .diff-card-premium {
-            border-left: 2px solid #4364f7;
-            padding: 16px 0 16px 24px;
-        }
-
-        .diff-card-premium h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .diff-card-premium p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        /* Galeria / Portfólio Premium Estilo Mockup */
-.gallery-grid-premium {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-/* Responsividade: Faz virar 1 coluna em celulares */
-@media (max-width: 992px) {
-    .gallery-grid-premium {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 576px) {
-    .gallery-grid-premium {
-        grid-template-columns: 1fr;
-    }
-}
-
-.gallery-card-premium {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: var(--transition);
-    display: flex;         /* ADICIONADO: Ativa o controle de layout */
-    flex-direction: column; /* ADICIONADO: Garante imagem no topo, texto embaixo */
-}
-
-.gallery-card-premium:hover {
-    border-color: rgba(255,255,255,0.2);
-    transform: scale(1.02);
-}
-
-.gallery-visual-box {
-    height: 240px;
-    background: linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-weight: 500;
-    font-size: 0.9rem;
-    border-bottom: 1px solid var(--border-glass);
-    position: relative;
-    overflow: hidden; /* ADICIONADO: Impede a imagem de sair das bordas arredondadas */
-}
-
-/* NOVA REGRA: Controla e formata perfeitamente qualquer imagem inserida */
-.gallery-visual-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recorta e adapta a foto proporcionalmente ao quadrado */
-    display: block;
-    transition: var(--transition);
-}
-
-/* Efeito Premium Extra: Zoom sutil na foto ao passar o mouse */
-.gallery-card-premium:hover .gallery-visual-box img {
-    transform: scale(1.06);
-}
-
-.gallery-visual-box::after {
-    content: 'CONFERIR'; /* Dica: Alterado para português se preferir, ou volte para 'VIEW PROJECT' */
-    position: absolute;
-    background: rgba(7, 11, 25, 0.9);
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text-main);
-    opacity: 0;
-    transition: var(--transition);
-    z-index: 2; /* ADICIONADO: Garante que o botão flutue ACIMA da imagem */
-}
-
-.gallery-card-premium:hover .gallery-visual-box::after {
-    opacity: 1;
-}
-
-.gallery-meta-box {
-    padding: 24px;
-    background: rgba(7, 11, 25, 0.2); /* Fundo sutil para isolar o texto */
-    position: relative;
-    z-index: 3; /* Garante que o texto fique blindado abaixo do quadrado da imagem */
-}
-
-.gallery-meta-box h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-    color: var(--text-main);
-}
-
-.gallery-meta-box span {
-    color: #6fb1fc;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-        /* Depoimentos Compactados */
-.testimonials-slider {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-/* Responsividade dos depoimentos para celular e tablet */
-@media (max-width: 992px) {
-    .testimonials-slider {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 576px) {
-    .testimonials-slider {
-        grid-template-columns: 1fr;
-    }
-}
-
-.testimonial-card-premium {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    padding: 32px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.stars-gold {
-    color: #fbbf24;
-    margin-bottom: 16px;
-    font-size: 0.95rem;
-}
-
-.testimonial-card-premium p {
-    color: var(--text-muted);
-    font-style: italic;
-    font-size: 0.95rem;
-    margin-bottom: 24px;
-    line-height: 1.5;
-}
-
-.client-profile {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.avatar-initials {
-    width: 45px;               /* Aumentado para 45px para destacar melhor a foto */
-    height: 45px;              /* Altura idêntica para manter o círculo perfeito */
-    background: rgba(67, 100, 247, 0.2);
-    border: 1px solid rgba(111, 177, 252, 0.3);
-    color: #6fb1fc;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.85rem;
-    overflow: hidden;          /* CORREÇÃO CHAVE: Corta rigidamente o que tentar vazar */
-    position: relative;
-}
-
-/* NOVA REGRA: Ajusta e blinda a foto do cliente dentro do círculo */
-.avatar-initials img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;         /* Ajusta a imagem proporcionalmente sem amassar o rosto */
-    object-position: center;   /* Foca o centro da foto */
-    display: block;
-}
-
-.client-name-meta h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-main);  /* Garante uma boa leitura do nome */
-}
-
-.client-name-meta span {
-    font-size: 0.75rem;
-    color: #22c55e;
-    font-weight: 500;
-}
-        /* Área do Google Maps & Regiões */
-        .coverage-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
             align-items: center;
         }
 
-        .regions-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            list-style: none;
-        }
-
-        .regions-pills li {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-glass);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .map-box-premium {
-            width: 100%;
-            height: 320px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-glass);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        /* Seção Contato / Form de Conversão Direta */
-        .contact-section-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
-        }
-
-        .form-card-premium {
-            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 100%);
-            border: 1px solid var(--border-glass);
-            padding: 48px;
-            border-radius: 24px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-        }
-
-        .form-row {
+        .about-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 16px;
         }
 
-        .form-group-premium {
-            margin-bottom: 20px;
-        }
-
-        .form-group-premium label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .input-premium {
+        .about-images img {
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             width: 100%;
-            padding: 14px 18px;
-            background: rgba(7, 11, 25, 0.6);
-            border: 1px solid var(--border-glass);
-            border-radius: 10px;
-            font-family: var(--font);
-            font-size: 0.95rem;
-            color: var(--text-main);
-            transition: var(--transition);
+            height: 250px;
+            object-fit: cover;
         }
 
-        .input-premium:focus {
-            outline: none;
-            border-color: #4364f7;
-            box-shadow: 0 0 15px rgba(67, 100, 247, 0.2);
+        /* ==========================================================================
+           FAQ
+           ========================================================================== */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--white);
         }
 
-        .btn-submit-premium {
-            background: var(--primary-grad);
-            color: var(--text-main);
-            width: 100%;
-            padding: 16px;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            box-shadow: 0 4px 25px rgba(67, 100, 247, 0.3);
-            transition: var(--transition);
+        .faq-max-width {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .btn-submit-premium:hover {
-            box-shadow: 0 6px 30px rgba(67, 100, 247, 0.5);
-            transform: translateY(-1px);
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding: 24px 0;
         }
 
-        .info-panel-premium {
+        .faq-question {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 40px;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
         }
 
-        .contact-info-block h3 {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #4364f7;
-            margin-bottom: 8px;
+        .faq-question h3 {
+            font-size: 1.15rem;
         }
 
-        .contact-info-block p, .contact-info-block a {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: var(--transition);
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
 
-        .contact-info-block a:hover {
-            color: #6fb1fc;
+        .faq-answer p {
+            padding-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text);
         }
 
-        /* Footer Assinatura Luandesson */
-        footer {
-            background-color: #040710;
-            color: var(--text-muted);
-            padding: 80px 0 40px 0;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-glass);
+        /* ==========================================================================
+           CONTATO E LOCALIZAÇÃO
+           ========================================================================== */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
         }
 
-        .footer-grid-premium {
+        .contact-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: start;
         }
 
-        .footer-col h4 {
-            color: var(--text-main);
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .footer-col ul {
+        .contact-details-list {
             list-style: none;
+            margin-bottom: 32px;
         }
 
-        .footer-col ul li {
-            margin-bottom: 14px;
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
         }
 
-        .footer-col ul a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-col ul a:hover {
-            color: var(--text-main);
-        }
-
-        .footer-bottom-premium {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid var(--border-glass);
-            font-size: 0.85rem;
-        }
-
-        .footer-bottom-premium a {
-            color: #f8fafc;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .footer-bottom-premium a:hover {
-            color: #6fb1fc;
-            text-decoration: underline;
-        }
-
-        /* Botão Flutuante Pulsante WhatsApp */
-        .whatsapp-float-premium {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background-color: var(--whatsapp);
-            color: #ffffff;
-            width: 56px;
-            height: 56px;
+        .contact-detail-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            color: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+
+        .map-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 380px;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.05);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: var(--transition);
         }
 
-        .whatsapp-float-premium:hover {
-            transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
         }
 
-        .whatsapp-icon-svg {
-            width: 28px;
-            height: 28px;
-            fill: currentColor;
+        /* ==========================================================================
+           WHATSAPP FLOATING
+           ========================================================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background-color: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
         }
 
-        /* Responsividade Avançada (Estilo App Mobile) */
-        @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-grid, .about-layout, .gallery-grid-premium, .testimonials-slider, .coverage-container, .contact-section-layout {
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* ==========================================================================
+           RESPONSIVIDADE
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-grid, .hub-grid, .about-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
-            .hero { padding: 60px 0 80px 0; }
-            .hero h1 { font-size: 2.6rem; }
-            .footer-grid-premium { grid-template-columns: 1fr; gap: 40px; }
-            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-actions, .hero-features {
+                justify-content: center;
+            }
+            .hero-image {
+                order: -1;
+            }
+            .about-images {
+                order: 1;
+            }
         }
 
         @media (max-width: 768px) {
-            .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .services-grid { grid-template-columns: 1fr; }
-            
-            /* Ajuste Estrutural Exato da Navbar Mobile */
-            .nav-container {
-                padding: 12px 20px;
+            .nav-menu {
+                display: none; /* Padrão simplificado para foco em CTA mobile */
             }
-
-            .logo-link {
-                order: 1;
+            .hero-content h1 {
+                font-size: 2.3rem;
             }
-
-            .menu-toggle {
-                display: flex;
-                order: 3;
-            }
-
-            /* Nome Centralizado Perfeito no Meio no Mobile */
-            .logo-text-mobile {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                font-weight: 800;
-                font-size: 0.95rem;
-                color: var(--text-main);
-                letter-spacing: 0.5px;
-                line-height: 1.1;
-                text-align: center;
-                white-space: nowrap;
-                z-index: 1001;
-            }
-
-            .logo-text-mobile span {
-                font-size: 0.65rem;
-                font-weight: 600;
-                color: #6fb1fc;
-                letter-spacing: 1px;
-            }
-
-            /* Gaveta do Menu Lateral Deslizando da Direita */
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 290px;
-                height: 100vh;
-                background: rgba(7, 11, 25, 0.96);
-                backdrop-filter: blur(30px);
-                -webkit-backdrop-filter: blur(30px);
-                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
-                transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                padding: 100px 32px 40px 32px;
-                z-index: 1000;
-            }
-
-            nav.active {
-                right: 0;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 28px;
-                width: 100%;
-            }
-
-            nav a {
-                font-size: 1.1rem;
-                display: block;
-                width: 100%;
-                padding-bottom: 8px;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-            }
-
-            .btn-nav {
-                text-align: center;
-                margin-top: 16px;
-                border-bottom: none;
-            }
-           
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/5521990140784?text=Olá!+Gostaria+de+solicitar+um+orçamento+para+ar-condicionado." class="whatsapp-float-premium" target="_blank" rel="noopener noreferrer" title="Fale pelo WhatsApp">
-        <svg class="whatsapp-icon-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.498 1.451 5.438 1.453 5.494 0 9.961-4.47 9.964-9.97.002-2.666-1.033-5.174-2.914-7.057C17.25 1.708 14.74 .672 12.01.67c-5.497 0-9.966 4.47-9.969 9.97-.001 1.993.513 3.943 1.49 5.66l-.994 3.634 3.71-.973zm11.534-6.906c-.307-.154-1.813-.895-2.094-.997-.281-.102-.485-.154-.688.154-.203.308-.787.997-.965 1.203-.177.206-.355.23-.662.077-1.119-.56-1.954-.959-2.715-2.261-.201-.343.201-.318.574-1.062.063-.127.032-.239-.016-.341-.048-.102-.485-1.169-.664-1.601-.174-.419-.347-.362-.486-.369-.127-.006-.272-.007-.418-.007-.146 0-.384.054-.585.272-.2.218-.765.748-.765 1.822 0 1.074.78 2.113.89 2.262.11.149 1.534 2.342 3.716 3.281.519.224.924.358 1.24.46.52.165.994.142 1.368.086.417-.063 1.813-.742 2.066-1.46.254-.717.254-1.332.178-1.46-.076-.127-.272-.206-.58-.359z"/></svg>
-    </a>
-
+    <!-- HEADER / NAVIGATION -->
     <header>
-        <div class="nav-container">
-            <a href="#home" class="logo-link">
-                <img src="img/logo_CLIMA_SPLIT_REFRIGERACAO.png" alt="Clima Split" class="logo-img">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <!-- PLACEHOLDER LOGO -->
+                <img src="img/logo_CLIMA_SPLIT_REFRIGERACAO.png" alt="Clima Split Logo">
             </a>
-
-            <div class="logo-text-mobile">
-                CLIMA SPLIT
-                <span>REFRIGERAÇÃO</span>
-            </div>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav id="mainNav">
-                <ul>
-                    <li class="active"><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#quem-somos" class="nav-link">Quem Somos</a></li>
-                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                    <li><a href="#galeria" class="nav-link">Projetos</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
-                    <li><a href="https://wa.me/5521990140784" class="btn-nav" target="_blank">Atendimento Já</a></li>
-                </ul>
-            </nav>
+            <ul class="nav-menu">
+                <li><a href="#solucoes" class="nav-link">Nossas Soluções</a></li>
+                <li><a href="#sobre" class="nav-link">A Empresa</a></li>
+                <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+                <li><a href="#localizacao" class="nav-link">Onde Estamos</a></li>
+            </ul>
+            <!-- CTA DA AGÊNCIA (WHATSAPP PRINCIPAL) -->
+            <a href="https://wa.me/5521991701876?text=Olá!%20Gostaria%20de%20falar%20com%20o%20atendimento." target="_blank" class="btn btn-primary nav-cta">
+                <i class="fa-brands fa-whatsapp"></i> Falar com Atendente
+            </a>
         </div>
     </header>
 
-    <section id="home" class="hero">
-    <div class="glow-bg" style="top: -10%; left: -10%;"></div>
-
-    <div class="container">
-        <div class="hero-grid">
-
-            <div class="hero-content">
-
-                <div class="hero-badge">
-                    <span>❄️</span> Loja + Assistência Técnica Especializada
-                </div>
-
-                <h1>
-                    Climatização profissional, peças e suporte técnico em um só lugar.
-                </h1>
-
-                <p>
-                    Instalação, manutenção, higienização e venda de produtos para refrigeração com atendimento rápido e padrão profissional.
-                </p>
-
-                <div class="cta-group">
-
-                    <a href="https://wa.me/5521990140784?text=Olá!+Gostaria+de+um+orçamento+rápido."
-                       class="btn btn-primary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        Solicitar orçamento rápido
-
-                    </a>
-
-                    <a href="#servicos" class="btn btn-secondary">
-                        Conhecer Serviços
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-visual">
-                <div class="hero-image-wrapper">
-
-                    <img
-                        src="img/frente_loja.jpg"
-                        alt="Fachada da loja Clima Split Refrigeração"
-                        class="hero-img-loja"
-                    >
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <div class="trust-bar">
-    <div class="container">
-        <div class="trust-grid">
-
-            <div class="trust-item">
-                <h3>100%</h3>
-                <p>Garantia no Serviço</p>
-            </div>
-
-            <div class="trust-item">
-                <h3>Google</h3>
-                <p>Avaliações Positivas</p>
-            </div>
-
-            <div class="trust-item">
-                <h3>Rápido</h3>
-                <p>Atendimento Emergencial</p>
-            </div>
-
-            <div class="trust-item">
-                <h3>Inverter</h3>
-                <p>Especialistas Técnicos</p>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-    <section id="quem-somos">
-        <div class="container">
-            <div class="about-layout">
-                <div class="about-text">
-                    <div class="section-header" style="text-align: left; margin-bottom: 24px;">
-                        <span>Sobre a Empresa</span>
-                        <h2>Padrão de Engenharia em Climatização</h2>
+    <main>
+        
+        <!-- HERO SECTION (DOBRA PRINCIPAL) -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="section-badge">Peças, Ferramentas e Consertos</span>
+                    <h1>Tudo para refrigeração em <span>um só lugar</span></h1>
+                    <p>A maior linha de peças e ferramentas para técnicos e o melhor centro especializado em conserto, higienização e instalação de ar-condicionado para quem precisa de reparos.</p>
+                    <div class="hero-actions">
+                        <a href="https://wa.me/5521991701876?text=Olá!%20Gostaria%20de%20solicitar%20um%20reparo%20ou%20instalação." target="_blank" class="btn btn-primary">
+                            <i class="fa-solid fa-screwdriver-wrench"></i> Solicitar Conserto / Instalação
+                        </a>
+                        <a href="https://wa.me/5521991701876?text=Olá!%20Quero%20consultar%20peças%20ou%20ferramentas." target="_blank" class="btn btn-outline">Consultar Peças na Loja</a>
                     </div>
-                    <p>A Clima Split Refrigeração une alto rigor técnico e tecnologia para conferir o máximo rendimento térmico a residências e empresas. Desenvolvemos diagnósticos limpos e precisos com foco em durabilidade.</p>
+                    <div class="hero-features">
+                        <div class="h-feat-item"><i class="fa-solid fa-store"></i> Loja Física Completa</div>
+                        <div class="h-feat-item"><i class="fa-solid fa-medal"></i> Especialistas Certificados</div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- PLACEHOLDER EQUIPE / FACHADA PRINCIPAL -->
+                    <img src="img/casal clima split.png" alt="Equipe Clima Split Refrigeração">
+                </div>
+            </div>
+        </section>
+
+        <!-- HUB DE NEGÓCIOS (O CORE DO SITE) -->
+        <section id="solucoes" class="hub-section">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-badge">Como podemos ajudar?</span>
+                    <h2 class="section-title">Escolha o seu canal de atendimento</h2>
+                    <p class="section-subtitle">Atendemos profissionais da refrigeração com insumos de qualidade e realizamos serviços de ponta para consumidores finais.</p>
+                </div>
+
+                <div class="hub-grid">
+                    <!-- LADO LOJA (TÉCNICOS) -->
+                    <div class="hub-card hub-loja">
+                        <div>
+                            <span style="color: var(--primary); font-weight:700; text-transform:uppercase; font-size:0.8rem;">Para Profissionais</span>
+                            <h2>Loja de Peças & Ferramentas</h2>
+                            <p>Encontre tudo o que você precisa para o seu dia a dia de trabalho. Estoque completo e pronta entrega.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Gases Refrigerantes (R410a, R22, etc.)</li>
+                                <li><i class="fa-solid fa-check"></i> Ferramentas de alta precisão e manifolds</li>
+                                <li><i class="fa-solid fa-check"></i> Placas universais, motores e compressores</li>
+                                <li><i class="fa-solid fa-check"></i> Tubulações de cobre e isolamentos térmicos</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5521991701876?text=Quero%20verificar%20o%20estoque%20de%20peças" target="_blank" class="btn btn-primary" style="width: 100%;">
+                            <i class="fa-solid fa-basket-shopping"></i> Consultar Estoque pelo WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- LADO CONSERTO / INSTALAÇÃO -->
+                    <div class="hub-card hub-conserto">
+                        <div>
+                            <span style="color: var(--dark); font-weight:700; text-transform:uppercase; font-size:0.8rem;">Para Sua Casa ou Empresa</span>
+                            <h2>Instalação & Consertos</h2>
+                            <p>Seu ar-condicionado parou ou precisa instalar um novo? Conte com o nosso time especializado.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Conserto de placas, vazamentos e troca de compressor</li>
+                                <li><i class="fa-solid fa-check"></i> Instalação dentro do padrão do fabricante</li>
+                                <li><i class="fa-solid fa-check"></i> Higienização química completa (Antibactéria)</li>
+                                <li><i class="fa-solid fa-check"></i> Manutenção Corretiva e Preventiva ágil</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5521991701876?text=Preciso%20de%20um%20técnico%20para%20conserto%2Finstalação" target="_blank" class="btn btn-primary" style="background-color: var(--dark); color: var(--white); width: 100%;">
+                            <i class="fa-solid fa-phone-volume"></i> Chamar Técnico Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE A EMPRESA (COM FOTOS DA FACHADA E EQUIPE) -->
+        <section id="sobre" class="about-section">
+            <div class="container about-grid">
+                <div class="about-images">
+                    <!-- PLACEHOLDERS DAS IMAGENS NA SUA PASTA LOCAL -->
+                    <img src="img/frente_loja.jpg" alt="Fachada da Loja Clima Split">
+                    <img src="img/balcao.png" alt="Interior da Loja Clima Split e Balcão">
+                </div>
+                <div class="about-content">
+                    <span class="section-badge">Quem Somos</span>
+                    <h2>Estrutura completa para melhor te atender</h2>
+                    <p style="margin-bottom: 16px;">A <strong>Clima Split Refrigeração</strong> nasceu com a missão de ser a principal aliada do ecossistema de climatização da nossa região. Combinamos um balcão de vendas robusto com uma oficina altamente técnica.</p>
+                    <p style="margin-bottom: 24px;">Se você é técnico, tem acesso às melhores marcas do mercado. Se você é o cliente final, recebe uma mão de obra que entende o funcionamento de cada peça, garantindo o conserto definitivo do seu aparelho.</p>
+                    <a href="#localizacao" class="btn btn-outline">Visitar Nossa Loja Física</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ (PERGUNTAS FREQUENTES) -->
+        <section id="faq" class="faq">
+            <div class="container faq-max-width">
+                <div class="text-center">
+                    <span class="section-badge">Dúvidas</span>
+                    <h2 class="section-title">Perguntas Frequentes</h2>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês vendem peças para qualquer marca de ar-condicionado?</h3>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Trabalhamos com peças originais e universais para as principais marcas do mercado (Split, Janela e Inverter), incluindo LG, Samsung, Midea, Carrier, Consul, Elgin, entre outras.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como funciona o agendamento de um conserto ou instalação?</h3>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode clicar em qualquer botão de atendimento técnico do site. Nosso time comercial coletará as informações do seu aparelho e enviará um técnico especializado diretamente ao seu endereço no horário combinado.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Técnicos autônomos têm desconto na compra de peças?</h3>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, possuímos condições diferenciadas e tabela de atacado para profissionais cadastrados que compram com frequência em nosso balcão. Entre em contato conosco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCALIZAÇÃO E CONTATO (COM LINK GOOGLE MAPS) -->
+        <section id="localizacao" class="contact">
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <span class="section-badge">Onde Estamos</span>
+                    <h2>Venha nos fazer uma visita</h2>
+                    <p style="margin-bottom: 24px;">Venha comprar suas ferramentas ou traga seu aparelho para um orçamento em nossa oficina especializada.</p>
                     
-                    <div class="mvv-clean-grid">
-                        <div class="mvv-card-premium">
-                            <h4>Missão</h4>
-                            <p>Garantir conforto térmico sustentável e eficiente.</p>
-                        </div>
-                        <div class="mvv-card-premium">
-                            <h4>Visão</h4>
-                            <p>Ser a maior referência em soluções de alta performance.</p>
-                        </div>
-                        <div class="mvv-card-premium">
-                            <h4>Valores</h4>
-                            <p>Pontualidade, transparência e engenharia limpa.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-badge-visual">
-
-    <img 
-        src="img/casal clima split.png" 
-        alt="Proprietários Clima Split Refrigeração"
-        class="about-bg-image"
-    >
-
-    <div class="about-overlay"></div>
-
-    <div class="about-content">
-        <span class="icon-large">💎</span>
-
-        <h3 style="margin-bottom: 8px;">
-            Consolidação e Confiança
-        </h3>
-
-        <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Profissionais uniformizados equipados com maquinário especializado de última geração.
-        </p>
-    </div>
-
-</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicos" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-glass);">
-        <div class="glow-bg" style="bottom: 10%; right: -10%;"></div>
-        <div class="container">
-            <div class="section-header">
-                <span>Soluções</span>
-                <h2>Engenharia de Refrigeração Ativa</h2>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card-premium">
-                    <div>
-                        <svg class="service-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        <h3>Instalação Conectada</h3>
-                        <p>Infraestrutura e fixação dentro das estritas especificações técnicas das fabricantes, preservando sua garantia original.</p>
-                    </div>
-                    <a href="https://wa.me/5521990140784?text=Quero+instalação" class="service-action-link" target="_blank">Solicitar Solução →</a>
-                </div>
-
-                <div class="service-card-premium">
-                    <div>
-                        <svg class="service-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        <h3>Manutenção Preventiva</h3>
-                        <p>Ajustes finos periódicos e calibração de fluidos para blindar o sistema contra pane geral inesperada e vazamentos.</p>
-                    </div>
-                    <a href="https://wa.me/5521990140784?text=Quero+manutenção" class="service-action-link" target="_blank">Solicitar Solução →</a>
-                </div>
-
-                <div class="service-card-premium">
-                    <div>
-                        <svg class="service-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.172V5L8 4z"/></svg>
-                        <h3>Higienização Química</h3>
-                        <p>Desinfecção profunda de evaporadoras e turbinas, erradicando ácaros e alérgenos para entrega de um ar totalmente puro.</p>
-                    </div>
-                    <a href="https://wa.me/5521990140784?text=Quero+higienização" class="service-action-link" target="_blank">Solicitar Solução →</a>
-                </div>
-
-                <div class="service-card-premium">
-                    <div>
-                        <svg class="service-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        <h3>Contratos Corporativos</h3>
-                        <p>Adequação total ao PMOC exigido por normas sanitárias, assegurando a auditoria e saúde da sua operação comercial.</p>
-                    </div>
-                    <a href="https://wa.me/5521990140784?text=Quero+contrato" class="service-action-link" target="_blank">Solicitar Solução →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="mid-cta">
-        <div class="container">
-            <h2>Pronto para restabelecer o conforto térmico perfeito?</h2>
-            <p>Atendimento emergencial corporativo e residencial com agendamento imediato.</p>
-            <a href="https://wa.me/5521990140784" class="btn btn-primary" target="_blank">Falar com Especialista de Plantão</a>
-        </div>
-    </div>
-
-    <section id="diferenciais">
-        <div class="container">
-            <div class="section-header">
-                <span>Diferenciais</span>
-                <h2>Sua Estrutura de Climatização Protegida</h2>
-            </div>
-            <div class="diff-grid">
-                <div class="diff-card-premium">
-                    <h3>Pontualidade</h3>
-                    <p>Logística inteligente coordenada para cumprimento rígido dos horários pactuados.</p>
-                </div>
-                <div class="diff-card-premium">
-                    <h3>Garantia Ativa</h3>
-                    <p>Suporte completo documentado e pós-atendimento ágil via canais prioritários.</p>
-                </div>
-                <div class="diff-card-premium">
-                    <h3>Tecnologia Inverter</h3>
-                    <p>Domínio técnico em sistemas de alta eficiência para redução do consumo elétrico.</p>
-                </div>
-                <div class="diff-card-premium">
-                    <h3>Laudo Técnico</h3>
-                    <p>Transparência total com diagnósticos estruturados antes de qualquer intervenção.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="galeria" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-glass);">
-        <div class="container">
-            <div class="section-header">
-                <span>Soluções</span>
-                <h2>Produtos e Serviços</h2>
-            </div>
-            
-            <div class="gallery-grid-premium">
-                <div class="gallery-card-premium">
-                    <div class="gallery-visual-box">
-                        <img src="img/higienizacaoquimica.jpg" alt="Higienização Química Estéril" loading="lazy">
-                    </div>
-                    <div class="gallery-meta-box">
-                        <h4>Higienização Química Estéril</h4>
-                        <span>Manutenção Preventiva</span>
-                    </div>
-                </div>
-
-                <div class="gallery-card-premium">
-                    <div class="gallery-visual-box">
-                        <img src="img/instalacao inverte.jpg" alt="Split Inverter High Wall" loading="lazy">
-                    </div>
-                    <div class="gallery-meta-box">
-                        <h4>Split Inverter High Wall</h4>
-                        <span>Instalação Premium</span>
-                    </div>
-                </div>
-
-                <div class="gallery-card-premium">
-                    <div class="gallery-visual-box">
-                        <img src="img/Sistemas de Cassete Integrado.jpg" alt="Sistemas de Cassete Integrado" loading="lazy">
-                    </div>
-                    <div class="gallery-meta-box">
-                        <h4>Sistemas de Cassete Integrado</h4>
-                        <span>Climatização Comercial</span>
-                    </div>
-                </div>
-
-                <div class="gallery-card-premium">
-                    <div class="gallery-visual-box">
-                        <img src="img/valvula registro.png" alt="Válvula Registro para Fluido Refrigerante" loading="lazy">
-                    </div>
-                    <div class="gallery-meta-box">
-                        <h4>Válvula Registro 1/4"</h4>
-                        <span>Para Lata de Fluido Refrigerante</span>
-                    </div>
-                </div>
-
-                <div class="gallery-card-premium">
-                    <div class="gallery-visual-box">
-                        <img src="img/Regulador Suryha.jfif" alt="Regulador de Nitrogênio Suryha" loading="lazy">
-                    </div>
-                    <div class="gallery-meta-box">
-                        <h4>Regulador Suryha</h4>
-                        <span>Precisão e Segurança Total</span>
-                    </div>
-                </div>
-
-                <div class="gallery-card-premium">
-                    <div class="gallery-visual-box">
-                        <img src="img/Fluido Refrigerante.webp" alt="Gás Map Profissional" loading="lazy">
-                    </div>
-                    <div class="gallery-meta-box">
-                        <h4>Gás Map</h4>
-                        <span>Alta Performance em Brasagem</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="depoimentos">
-        <div class="container">
-            <div class="section-header">
-                <span>Avaliações</span>
-                <h2>Aprovação Máxima no Google Framework</h2>
-            </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-card-premium">
-                    <div>
-                        <div class="stars-gold">★★★★★</div>
-                        <p>"Recomendo sem pensar duas vezes. Atendimento rápido, suporte técnico profissional e honestidade absoluta no diagnóstico."</p>
-                    </div>
-                    <div class="client-profile">
-                        <div class="avatar-initials">
-                            <img src="img/ismael.png" alt="Ismael Silva" loading="lazy">
-                        </div>
-                        <div class="client-name-meta">
-                            <h4>Ismael Silva</h4>
-                            <span>✓ Cliente Verificado</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card-premium">
-                    <div>
-                        <div class="stars-gold">★★★★★</div>
-                        <p>"Atendimento espetacular. Variedade em soluções de climatização e refrigeração. Nota dez no pós-venda."</p>
-                    </div>
-                    <div class="client-profile">
-                        <div class="avatar-initials">
-                            <img src="img/diogo.png" alt="Diogo Benedicto" loading="lazy">
-                        </div>
-                        <div class="client-name-meta">
-                            <h4>Diogo Benedicto</h4>
-                            <span>✓ Cliente Verificado</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card-premium">
-                    <div>
-                        <div class="stars-gold">★★★★★</div>
-                        <p>"Top ótimo atendimento e variedade em produtos"</p>
-                    </div>
-                    <div class="client-profile">
-                        <div class="avatar-initials">
-                            <img src="img/Diekison guerreiro mourao.png" alt="Diekison guerreiro mourao" loading="lazy">
-                        </div>
-                        <div class="client-name-meta">
-                            <h4>Diekison guerreiro mourao</h4>
-                            <span>✓ Cliente Verificado</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="coverage-container">
-                <div>
-                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 12px;">Disponibilidade Imediata</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 24px;">Mantemos frotas ativas posicionadas de forma estratégica para diminuir o tempo de resposta logístico.</p>
-                    <ul class="regions-pills">
-                        <li>Zona Sul</li>
-                        <li>Zona Norte</li>
-                        <li>Zona Oeste</li>
-                        <li>Centro</li>
-                        <li>Metropolitana</li>
+                    <ul class="contact-details-list">
+                        <li class="contact-detail-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div><strong>Endereço:</strong> Estr. João Paulo, 1709 - Barros Filho, Rio de Janeiro - RJ, 21515-202</div>
+                        </li>
+                        <li class="contact-detail-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div><strong>WhatsApp Comercial:</strong> (21) 99170-1876</div>
+                        </li>
+                        <li class="contact-detail-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div><strong>Horário:</strong> Seg a Sex: 08h às 18h | Sáb: 08h às 12h</div>
+                        </li>
                     </ul>
-                </div>
-                <div class="map-box-premium">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6990.34763891081!2d-43.3645759!3d-22.8352576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9963015c4385d1%3A0x8f8bbb3b02c3c1ed!2sClima%20Split%20Refrigera%C3%A7%C3%A3o!5e1!3m2!1spt-BR!2sbr!4v1779647949980!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="contato" style="border-top: 1px solid var(--border-glass);">
-        <div class="container">
-            <div class="contact-section-layout">
-                <div class="form-card-premium">
-                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 32px;">Agende uma inspeção técnica imediata</h3>
-                    <form action="#" method="POST" onsubmit="alert('Sua solicitação foi enviada. Entraremos em contato em instantes.'); return false;">
-                        <div class="form-row">
-                            <div class="form-group-premium">
-                                <label for="name">Nome</label>
-                                <input type="text" id="name" class="input-premium" placeholder="Seu nome" required>
-                            </div>
-                            <div class="form-group-premium">
-                                <label for="whatsapp">WhatsApp</label>
-                                <input type="tel" id="whatsapp" class="input-premium" placeholder="(00) 00000-0000" required>
-                            </div>
-                        </div>
-                        <div class="form-group-premium">
-                            <label for="service">Serviço Pretendido</label>
-                            <select id="service" class="input-premium" style="background-color: #070b19;" required>
-                                <option value="">Escolha a opção...</option>
-                                <option value="instalacao">Instalação Estrutural</option>
-                                <option value="manutencao">Manutenção Preventiva</option>
-                                <option value="higienizacao">Higienização Profunda</option>
-                                <option value="corporativo">Contrato PMOC (Empresa)</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn-submit-premium">Garantir Prioridade de Atendimento</button>
-                    </form>
+                    <!-- CTA DE AGÊNCIA DIRETO PARA O MAPA NO CELULAR -->
+                    <a href="https://maps.app.goo.gl/AEaEHMzVjPUahCJY7" target="_blank" class="btn btn-primary">
+                        <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps / GPS
+                    </a>
                 </div>
                 
-                <div class="info-panel-premium">
-    <div class="contact-info-block">
-        <h3>Conexão Direta</h3>
-        <p><a href="tel:+5521990140784">21 990140784</a></p>
-    </div>
-    <div class="contact-info-block">
-        <h3>Mídia Social</h3>
-        <p>
-            <a href="https://www.instagram.com/clima_split_refrigeracao/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-        </p>
-    </div>
-    <div class="contact-info-block">
-        <h3>Base Operacional</h3>
-        <p style="font-size: 1.2rem; font-weight: 700; line-height: 1.4; color: var(--text-main);">
-            ESTRADA JOÃO PAULO N1709 / BARROS FILHO, RJ
-        </p>
-    </div>
+                <div class="map-wrapper">
+    <!-- EMBED DO GOOGLE MAPS CONFIGURADO -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14708.450622765386!2d-43.383663612841794!3d-22.835321199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9963015c4385d1%3A0x8f8bbb3b02c3c1ed!2sClima%20Split%20Refrigera%C3%A7%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1779914707815!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+    </main>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-grid-premium">
-                <div class="footer-col">
-                    <h4>Clima Split Refrigeração</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Engenharia técnica aplicada a sistemas de climatização residenciais e industriais. Conforto térmico absoluto sob demanda.</p>
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <!-- REPETE A LOGO NO RODAPÉ -->
+                    <img src="img/logo_CLIMA_SPLIT_REFRIGERACAO.png" alt="Clima Split Logo" style="height: 90px;">
                 </div>
-                <div class="footer-col">
-                    <h4>Navegação Estrita</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#quem-somos">Quem Somos</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Divisões Especializadas</h4>
-                    <ul style="color: var(--text-muted);">
-                        <li>• Splits Inverter High Wall</li>
-                        <li>• Sistemas Corporativos PMOC</li>
-                        <li>• Manutenção de Fluidos Térmicos</li>
-                        <li>• Higienização Microbiológica</li>
-                    </ul>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/clima_split_refrigeracao/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/marloncsr/?locale=pt_BR" target="_blank" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom-premium">
-                <p>© 2026 Clima Split Refrigeração. Todos os direitos reservados. | Desenvolvido por <a href="https://www.linkedin.com/in/luandesson/" target="_blank" rel="noopener noreferrer">Web Designer Luandesson Alves</a>.</p>
+            <div class="text-center" style="font-size: 0.8rem; color: rgba(255,255,255,0.4);">
+                <p>&copy; 2026 Clima Split Refrigeração. Todos os direitos reservados. CNPJ: 27992992000137 </p>
             </div>
         </div>
     </footer>
 
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+    <a href="https://wa.me/5521991701876?text=Olá!%20Acessei%20o%20site%20e%20gostaria%20de%20tirar%20uma%20dúvida." class="whatsapp-float" target="_blank" aria-label="Contato pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPT ACCORDION FAQ -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            // Toggle Ativo para Menu Hambúrguer Mobile
-            menuToggle.addEventListener('click', function() {
-                menuToggle.classList.toggle('active');
-                mainNav.classList.toggle('active');
-            });
-
-            // Fechamento automático responsivo
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    menuToggle.classList.remove('active');
-                    mainNav.classList.remove('active');
-                    
-                    // Altera indicador de menu ativo
-                    document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('active'));
-                    link.parentElement.classList.add('active');
-                });
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+                    answer.style.maxHeight = '0px';
+                    icon.className = 'fa-solid fa-plus';
+                } else {
+                    document.querySelectorAll('.faq-answer').forEach(ans => ans.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-question i').forEach(ic => ic.className = 'fa-solid fa-plus');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.className = 'fa-solid fa-minus';
+                }
             });
         });
     </script>
